@@ -5,17 +5,23 @@ import java.util.Scanner;
 /*
  *  친구정보 저장 기능.
  *  1.추가 2.목록 3.조회(숙제) 9.종료 
+	storage[1] = null; // 요렇게 꼭 사용하세요!!!!!! 중요...
+	
+	
+	storage[1].friendName = "홍길동";
+	storage[1].friendPhone = "010-1111-1111";
+	storage[1].friendBirth = "1999-01-01";
+	
+	C(reate)R(ead)U(pdate)D(elete)
  */
+
 public class FriendManager {
 	public static void main(String[] args) {
 		boolean run = true;
 		Scanner scn = new Scanner(System.in);
-		Friend[] storage = new Friend[10]; // 친구정보 저장할수 있는 공간 10개 확보.
-		init(storage);
-//		storage[1] = new Friend(); // 요렇게 꼭 사용하세요!!!!!! 중요...
-//		storage[1].friendName = "홍길동";
-//		storage[1].friendPhone = "010-1111-1111";
-//		storage[1].friendBirth = "1999-01-01";
+		Friend[] storage = new Friend[10];
+		init(storage); // 친구정보 저장할수 있는 공간 10개 확보.
+
 		while (run) {
 			System.out.println("----------------------------");
 			System.out.println("1.추가 2.목록 3.조회(숙제) 4.수정(연락처) 5.삭제 9.종료 ");
@@ -61,11 +67,11 @@ public class FriendManager {
 				name = scn.nextLine();
 				int idx = -1;
 				for (int i = 0; i < storage.length; i++) {
-					if (storage[i] != null) {
+					if (storage[i] != null) { // null 이 아닌 요소 기준 조회.
 						isExists = storage[i].friendName.equals(name);
 						if (isExists) {
 							idx = i;
-							break;
+							break; // for 반복문에..
 						}
 					}
 				}
@@ -81,7 +87,35 @@ public class FriendManager {
 					System.out.println("찾는 이름 없음");
 
 				}
-				break;
+				break; // switch 종료.
+			case 4: // 수정=> 이름, 연락처 입력.
+				System.out.print(" 친구 이름 입력>> ");
+				name = scn.nextLine();
+				System.out.print(" 친구 연락처 입력>> ");
+				phone = scn.nextLine();
+				// 10개 중에서 6개 저장, 4개 null.
+				for (int i = 0; i < storage.length; i++) {
+					if (storage[i] != null) { // null 값이 아닌 요소 대상.
+						if (storage[i].friendName.equals(name)) {
+							storage[i].friendPhone = phone;
+							break;
+						}
+					}
+				}
+				break; // switch 종료.
+			case 5: // 삭제. 배열의 위치에 null값을 대입함.
+				System.out.print(" 삭제할 친구 이름 입력>> ");
+				name = scn.nextLine();
+
+				for (int i = 0; i < storage.length; i++) {
+					if (storage[i] != null) { // null 값이 아닌 요소 대상.
+						if (storage[i].friendName.equals(name)) {
+							storage[i] = null;
+							break;
+						}
+					}
+				}
+				break; // switch 종료.
 			case 9: // 종료.
 				run = false;
 				break; // switch 종료.
@@ -93,7 +127,15 @@ public class FriendManager {
 		System.out.println(":::: 프로그램 끝 ::::");
 	} // end of main().
 
+//	
+//	
+//
+//
+//	
+//	
+
 	public static void init(Friend[] storage) {
+
 		Friend f1 = new Friend();
 		f1.friendName = "홍길동";
 		f1.friendPhone = "010-1111-1111";
