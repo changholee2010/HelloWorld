@@ -80,6 +80,7 @@ public class BoardDAO extends DAO {
 				brd.setContent(rs.getString("content"));
 				brd.setWriter(rs.getString("writer"));
 				brd.setViewCnt(rs.getInt("view_cnt"));
+				brd.setCreationDate(rs.getDate("creation_date"));
 
 				result.add(brd); // ArrayList에 추가.
 			}

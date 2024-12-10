@@ -11,10 +11,20 @@
     <servlet-name>second</servlet-name>
     <url-pattern>/second</url-pattern>
   </servlet-mapping>
+  
+  <!-- .do -> FrontControl을 실행등록 : url, 실행서블릿 관리. -->
+  <servlet>
+    <servlet-name>front</servlet-name>
+    <servlet-class>com.yedam.FrontControl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>front</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
 
   <!-- 제일먼저 실행되는 페이지(tomcat) -->
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
 </web-app>
