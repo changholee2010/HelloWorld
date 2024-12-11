@@ -4,12 +4,11 @@
 
 <jsp:include page="../includes/header.jsp"></jsp:include>  
 
-<!-- board.jsp 원래 있던 부분. -->
-<h3>글상세화면(board.jsp)</h3>
+<h3>글수정화면(modifyForm.jsp)</h3>
 <%
 BoardVO bvo = (BoardVO) request.getAttribute("board");
 %>
-<form action="modifyForm.do">
+<form action="modifyBoard.do">
 <input type="hidden" name="board_no" value="<%=bvo.getBoardNo() %>">
 <table class="table">
   <tr>
@@ -18,12 +17,12 @@ BoardVO bvo = (BoardVO) request.getAttribute("board");
   </tr>
   <tr>
     <th>제목</th>
-    <td colspan="3"><%=bvo.getTitle() %></td>
+    <td colspan="3"><input type="text" class="form-control" name="title" value="<%=bvo.getTitle() %>"></td>
   </tr>
   <tr>
     <th>내용</th>
     <td colspan="3">
-      <textarea rows="5" readonly class="form-control"><%=bvo.getContent() %></textarea>
+      <textarea rows="5" class="form-control" name="content"><%=bvo.getContent() %></textarea>
     </td>
   </tr>
   <tr>
@@ -32,22 +31,10 @@ BoardVO bvo = (BoardVO) request.getAttribute("board");
   </tr>
   <tr>
     <td colspan="4" align="center">
-    <%
-      String logId = (String) session.getAttribute("logId");
-      if (logId.equals(bvo.getWriter())) {
-    %>
-      <input type="submit" class="btn btn-warning" value="수정화면">
-    <%
-      } else {
-    %>
-      <input type="submit" class="btn btn-warning" value="수정화면" disabled>
-    <%
-      }
-    %>
+      <input type="submit" class="btn btn-warning" value="저장">
     </td>
   </tr>
 </table>
 </form>
-<!-- board.jsp 원래 있던 부분. -->
 
 <jsp:include page="../includes/footer.jsp"></jsp:include>  

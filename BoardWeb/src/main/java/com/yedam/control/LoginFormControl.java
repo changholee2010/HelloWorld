@@ -1,4 +1,4 @@
-package com.yedam;
+package com.yedam.control;
 
 import java.io.IOException;
 
@@ -8,13 +8,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class ModifyFormControl implements Control {
+public class LoginFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 게시글 번호 15번에 대한 조회결과 html/modifyForm.jsp 출력.
-		// 수정항목은 제목, 내용으로 제한.
-
+		// TODO Auto-generated method stub
+		req.getRequestDispatcher("html/loginForm.jsp").forward(req, resp);
 	}
 
 }
