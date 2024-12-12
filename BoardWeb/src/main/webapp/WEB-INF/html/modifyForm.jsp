@@ -7,9 +7,17 @@
 <h3>글수정화면(modifyForm.jsp)</h3>
 <%
 BoardVO bvo = (BoardVO) request.getAttribute("board");
+// 파라미터 추가작업. 2024.12.12
+String sc = (String) request.getAttribute("searchCondition");
+String kw = (String) request.getAttribute("keyword");
+String pg = (String) request.getAttribute("page");
 %>
 <form action="modifyBoard.do">
 <input type="hidden" name="board_no" value="<%=bvo.getBoardNo() %>">
+<!-- 파라미터 추가작업. 2024.12.12 -->
+<input type="hidden" name="searchCondition" value="<%=sc%>">
+<input type="hidden" name="keyword" value="<%=kw%>">
+<input type="hidden" name="page" value="<%=pg%>">
 <table class="table">
   <tr>
     <th>글번호</th><td><%=bvo.getBoardNo() %></td>

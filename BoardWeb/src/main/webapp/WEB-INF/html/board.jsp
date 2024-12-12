@@ -8,9 +8,17 @@
 <h3>글상세화면(board.jsp)</h3>
 <%
 BoardVO bvo = (BoardVO) request.getAttribute("board");
+//파라미터 추가작업. 2024.12.12
+String sc = (String) request.getAttribute("searchCondition");
+String kw = (String) request.getAttribute("keyword");
+String pg = (String) request.getAttribute("page");
 %>
 <form action="modifyForm.do">
 <input type="hidden" name="board_no" value="<%=bvo.getBoardNo() %>">
+<!-- 파라미터 추가작업. 2024.12.12 -->
+<input type="hidden" name="searchCondition" value="<%=sc%>">
+<input type="hidden" name="keyword" value="<%=kw%>">
+<input type="hidden" name="page" value="<%=pg%>">
 <table class="table">
   <tr>
     <th>글번호</th><td><%=bvo.getBoardNo() %></td>
@@ -33,8 +41,10 @@ BoardVO bvo = (BoardVO) request.getAttribute("board");
   <tr>
     <td colspan="4" align="center">
     <%
+      // 로그인상태 => 권한에 따라 활성화/비활성화.
+      // 로그인상태 아니면 => 권한없음.
       String logId = (String) session.getAttribute("logId");
-      if (logId.equals(bvo.getWriter())) {
+      if (logId != null && logId.equals(bvo.getWriter())) {
     %>
       <input type="submit" class="btn btn-warning" value="수정화면">
     <%
