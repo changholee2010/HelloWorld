@@ -74,7 +74,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/branch1.do", null);
 		map.put("/branch2.do", null);
 		map.put("/branch22.do", null);
-		map.put("/branch222.do", null);
 
 	}
 
