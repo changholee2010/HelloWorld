@@ -13,7 +13,9 @@ public class BoardDAO extends DAO {
 	// 회원정보 로그인진행.
 	public String login(String id, String pw) {
 		getConn();
-		String sql = "select * from tbl_member" + "   where member_id = ?" + "   and   password = ?";
+		String sql = "select * from tbl_member" //
+				+ "   where member_id = ?" //
+				+ "   and   password = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
@@ -115,6 +117,7 @@ public class BoardDAO extends DAO {
 				brd.setWriter(rs.getString("writer"));
 				brd.setViewCnt(rs.getInt("view_cnt"));
 				brd.setCreationDate(rs.getDate("creation_date"));
+				brd.setImg(rs.getString("img"));
 
 				return brd;
 			}
@@ -131,14 +134,15 @@ public class BoardDAO extends DAO {
 	public boolean insertBoard(BoardVO board) {
 		getConn();
 		String sql = "insert into tbl_board " //
-				+ "(board_no, title, content, writer) " //
-				+ "values(board_seq.nextval, ?, ?, ?) ";
+				+ "(board_no, title, content, writer, img) " //
+				+ "values(board_seq.nextval, ?, ?, ?, ?) ";
 
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, board.getTitle());
 			psmt.setString(2, board.getContent());
 			psmt.setString(3, board.getWriter());
+			psmt.setString(4, board.getImg());
 			int r = psmt.executeUpdate(); // 쿼리실행.
 			if (r > 0) {
 				return true;
