@@ -70,6 +70,8 @@ public class FrontControl extends HttpServlet {
 		map.put("/full.do", new FullCalendarControl());
 		map.put("/fullData.do", new CalendarDataControl()); // 목록.
 		map.put("/addEvent.do", new AddEventControl()); // 일정등록.
+		
+		map.put("/branch2.do", null);
 
 	}
 
