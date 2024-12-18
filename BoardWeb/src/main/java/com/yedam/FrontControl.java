@@ -72,6 +72,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/addEvent.do", new AddEventControl()); // 일정등록.
 		
 		map.put("/branch1.do", null);
+		map.put("/branch2.do", null);
 
 	}
 
