@@ -8,5 +8,6 @@
 </head>
 <body>
   <h3>branch1, branch2 공동작업</h3>
+  <p>branch1에서 에러 수정함</p>
 </body>
 </html>
