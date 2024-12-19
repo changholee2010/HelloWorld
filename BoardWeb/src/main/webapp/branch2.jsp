@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h3>branch2 modify -> b2</h3>
+	<p>기능추가함</p>
 </body>
 </html>
