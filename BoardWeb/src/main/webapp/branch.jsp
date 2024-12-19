@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <h3>branch1 modify</h3>
+  <h3>branch1, branch2 공동작업</h3>
 </body>
 </html>
