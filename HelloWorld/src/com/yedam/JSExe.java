@@ -7,6 +7,12 @@ public class JSExe {
 	} // end of main.
 
 	public static void test2() {
+
+		// 변경된 부분.
+
+
+
+		// 아무내용이나...
 		// 임의의 수를 생성. 1 ~ 100사이의 임의의 값 생성.
 		// 1 <= x < 11
 		int sum = 0;
