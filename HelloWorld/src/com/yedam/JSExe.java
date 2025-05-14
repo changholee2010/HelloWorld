@@ -32,7 +32,6 @@ public class JSExe {
 	} // end of main.
 
 	public static void test4() {
-
 		Scanner scn = new Scanner(System.in);
 		// 입력값을 누적할 변수.
 		String str = "친구목록은 ";
