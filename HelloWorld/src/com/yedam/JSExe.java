@@ -7,34 +7,42 @@ public class JSExe {
 	public static void main(String[] args) {
 		int num1 = 30;
 		int num2 = 30;
-//		System.out.println(num1 == num2);
 
 		String str1 = new String("Hello");
 		String str2 = new String("Hello");
-//		System.out.println(str1);
-//		System.out.println(str2);
 
 		// "30" vs. 30
 		String str3 = "30";
 		int num3 = 30;
 
-//		System.out.println(str3.equals("" + num3));
 		int num4 = Integer.parseInt(str3); // 문자열숫자
-//		System.out.println(num3 == num4);// 30 vs. "30"->30
 
 		// 문자열을 비교할 경우에는 equals 사용.
 //		System.out.println(str1.equals(str2));
-
-//		test2(); // 평균을 구하기(소수점까지 출력)
-//		test3();// 스캐너 사용.
-		test4();
+		test5();
 
 	} // end of main.
+
+	public static void test5() {
+		// printf("형식문자열", 값1, 값2...)
+		System.out.printf("%s %.2f\t", "문자", 30.3);
+		System.out.println("");
+		// "홍길동", 100, 23.9
+
+		// 안녕하세요. 이창호입니다.
+		// 나이는 20세입니다.
+		// 몸무게는 67.8입니다.
+		String formatStr = "안녕하세요. %s입니다.\n";
+		formatStr += "나이는 %d세입니다.\n";
+		formatStr += "몸무게는 %.1f입니다.\n";
+		System.out.printf(formatStr, "이창호", 20, 67.8);
+	}
 
 	public static void test4() {
 		Scanner scn = new Scanner(System.in);
 		// 입력값을 누적할 변수.
 		String str = "친구목록은 ";
+		boolean isFirst = true;
 		while (true) {
 			System.out.println("친구이름 입력. 종료하려면 quit>>");
 			String msg = scn.nextLine();
@@ -44,7 +52,12 @@ public class JSExe {
 				break;
 			}
 //			System.out.println("입력한 값은 " + msg);
-			str += msg + ", ";
+			if (isFirst) {
+				str += msg;
+				isFirst = false;
+			} else {
+				str += ", " + msg;
+			}
 		}
 		// 홍길동, 김민규, 최석영
 		// 친구목록은 홍길동, 김민규, 최석영 입니다.
