@@ -6,7 +6,24 @@ public class ArrayExe1 {
 		// Math.random 활용해서 10 ~ 100 사이의 점수를 생성.
 		// 학생 10명의 점수를 생성해서 학생점수의 평균을 구하고 최고점수 구하기.
 		// scoreAry 변수명.
-		
+		int[] scoreAry = new int[10]; // 크기가 10인 배열 생성.
+		// 학생10명의 임의점수 생성.
+		for (int i = 0; i < scoreAry.length; i++) {
+			scoreAry[i] = (int) (Math.random() * 91) + 10;
+		}
+		// 평균과 최대구하기.
+		int sum = 0, max = 0;
+		double avg = 0;
+		for (int i = 0; i < scoreAry.length; i++) {
+			sum += scoreAry[i]; // 합계.
+			if (max < scoreAry[i]) { // 최대값.
+				max = scoreAry[i];
+			}
+		}
+		avg = 1.0 * sum / scoreAry.length;
+
+		// 결과.
+		System.out.printf("평균은 %.1f, 최고점수는 %d", avg, max);
 
 	} // end of main.
 
