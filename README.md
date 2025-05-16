@@ -3,7 +3,7 @@
 ## 1일차
  - [기초문법] (https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/condition/IfExe.java)
  - <a href="https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/condition/IfExe.java">기초문법2</a><br>
-[숙제]
+### [숙제]
 1. 개발환경셋팅.
    - JDK 21 설치.
    - Eclipse 2025-03 버전 설치.
@@ -15,7 +15,7 @@
 3. 실습.
 
    
-[숙제]
+### [숙제]
 1. "혼자공부하는 자바" 3장 읽어보기.
 
 ## 3일차
@@ -24,6 +24,6 @@
  - 최대, 합계, 평균 구하기.
  - 정렬하기.
 
-[숙제]
+### [숙제]
 1. "혼자공부하는 자바" 페이지 223의 6번 문제를 읽어보고 코드를 완성하세요.
 [바로가기](https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/ref/TodoExe.java)
