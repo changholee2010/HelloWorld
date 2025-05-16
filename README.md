@@ -23,9 +23,13 @@
 1. "혼자공부하는 자바" 3장 읽어보기.
 
 ## **3일차** 😁
-1. 배열
-2. 배열과 반복문
-3. 최대, 최소, 평균 구하기
+1. [배열]
+2. [배열과 반복문]
+3. [최대, 최소, 평균] 구하기
+
+[배열]: https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/ref/NullExe.java
+[배열과 반복문]: https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/ref/ArrayExe.java
+[최대, 최소, 평균]: https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/ref/ArrayExe1.java
 
 ### [숙제🛒]
 1. "혼자공부하는 자바" 페이지 223의 6번 문제를 읽어보고 코드를 완성하세요.
