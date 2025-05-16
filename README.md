@@ -1,4 +1,4 @@
-# 2025년 5강의장 자바수업 
+# 2025년 5강의장 자바수업 (2025-05-14 ~ 2025-05-27)
 
 ## 1일차
  - [기초문법] (https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/condition/IfExe.java)
