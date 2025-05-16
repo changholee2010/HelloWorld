@@ -2,7 +2,7 @@
 
 ## 1일차
  - [기초문법] (https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/condition/IfExe.java)
- - <a href="https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/condition/IfExe.java">기초문법2</a>
+ - <a href="https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/condition/IfExe.java">기초문법2</a><br>
 [숙제]
 1. 개발환경셋팅.
    - JDK 21 설치.
