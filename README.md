@@ -5,7 +5,7 @@
 1. 기초. [바로가기](https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/condition/IfExe.java)
 2. 변수.
   - 기본타입
-  1) 정수, 실수, boolean
+  - 정수, 실수, boolean
   
 ### [숙제🛒]
 1. 개발환경셋팅.
@@ -33,6 +33,7 @@
 
 ### [숙제🛒]
 1. "혼자공부하는 자바" 페이지 223의 6번 문제를 읽어보고 코드를 완성하세요.
+
 [바로가기](https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/ref/TodoExe.java)
 
 
