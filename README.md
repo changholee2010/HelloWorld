@@ -1,8 +1,7 @@
-# 2025년 5강의장 자바수업 (2025-05-14 ~ 2025-05-27)
+# 2025년 5강의장 자바수업 (2025/05/14 ~ 2025/05/27)
 
 ## 1일차
- - [기초문법] (https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/condition/IfExe.java)
- - <a href="https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/condition/IfExe.java">기초문법2</a><br>
+ - <a href="https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/condition/IfExe.java">기초문법1</a><br>
   
 ### [숙제]
 1. 개발환경셋팅.
