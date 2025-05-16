@@ -26,3 +26,4 @@
 
 [숙제]
 1. "혼자공부하는 자바" 페이지 223의 6번 문제를 읽어보고 코드를 완성하세요.
+[바로가기](https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/ref/TodoExe.java)
