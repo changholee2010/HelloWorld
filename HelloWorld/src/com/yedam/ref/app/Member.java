@@ -9,5 +9,8 @@ package com.yedam.ref.app;
  */
 
 public class Member {
-
+	String memberId;
+	String memberName;
+	String phone;
+	int point;
 }
