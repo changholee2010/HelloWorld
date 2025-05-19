@@ -63,9 +63,14 @@ public class TodoExe {
 					System.out.println("점수를 입력하세요.");
 					continue;
 				}
+				System.out.print("검색조건 ex)남 또는 여 >> ");
+				String keyword = scanner.nextLine(); // "남", "여", "엔터"
+
 				// "이름, 점수" 출력.
 				for (int i = 0; i < scores.length; i++) {
-					System.out.printf("scores[%d]> %s %d \n", i, scores[i].studentName, scores[i].score);
+					if (keyword.equals("") || keyword.equals(scores[i].gender)) {
+						System.out.printf("scores[%d]> %s %d \n", i, scores[i].studentName, scores[i].score);
+					}
 				}
 
 			} else if (selectNo == 4) { // 분석(최고큰 키, 평균)
@@ -79,10 +84,10 @@ public class TodoExe {
 					if (max < scores[i].height) {
 						max = scores[i].height;
 						// 최대값 저장.
-						maxStd.score = scores[i].score;
-						maxStd.studentName = scores[i].studentName;
-						maxStd.height = scores[i].height;
-						maxStd.gender = scores[i].gender;
+						maxStd.score = scores[i].score; // 점수.
+						maxStd.studentName = scores[i].studentName; // 이름.
+						maxStd.height = scores[i].height; // 키.
+						maxStd.gender = scores[i].gender; // 성별.
 
 					}
 				}
