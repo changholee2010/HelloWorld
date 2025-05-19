@@ -36,7 +36,11 @@
 
 [바로가기](https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/ref/TodoExe.java)
 
+## **4일차** 
 
+
+### [숙제🛒]
+1. 2차원 배열에서 
 
 ## [일정]
 |일|월|화|수|목|금|토|
