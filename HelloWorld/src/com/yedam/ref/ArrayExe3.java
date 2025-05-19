@@ -38,19 +38,19 @@ public class ArrayExe3 {
 		s1.studentName = "홍길동";
 		s1.score = 80;
 		s1.height = 170.8;
-		s1.gender = "남"; // "남자", "Men",
+		s1.gender = Gender.MALE; // "남자", "Men",
 
 		Student s2 = new Student(); // 인스턴스 생성.
 		s2.studentName = "김민선";
 		s2.score = 85;
 		s2.height = 165.7;
-		s2.gender = "여";
+		s2.gender = Gender.FEMALE;
 
 		Student s3 = new Student(); // 인스턴스 생성.
 		s3.studentName = "박철민";
 		s3.score = 90;
 		s3.height = 180.3;
-		s3.gender = "남";
+		s3.gender = Gender.MALE;
 
 		stdAry = new Student[] { s1, s2, s3 }; // 배열에 값을 할당.
 	}
