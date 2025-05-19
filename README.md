@@ -58,9 +58,9 @@ public class TodoExe {
 
 각 배열의 numAry[0], numAry[1], numAry[2]의 평균을 출력하세요.
 아래의 모양처럼 출력이 되도록 하세요.
-1) numAry[0]의 평균은 34.56
-2) numAry[1]의 평균은 49.62
-3) numAry[2]의 평균은 69.30
+- numAry[0]의 평균은 34.56
+- numAry[1]의 평균은 49.62
+- numAry[2]의 평균은 69.30
 
 
 ## [일정]
