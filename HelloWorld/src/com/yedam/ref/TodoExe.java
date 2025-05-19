@@ -74,7 +74,7 @@ public class TodoExe {
 					}
 				}
 				avg = 1.0 * sum / scores.length;
-				System.out.printf("최고점수: %d\n평균점수: %.2f\n", max, avg);
+				System.out.printf("학생이름:%s, 최고점수: %d\n평균점수: %.2f\n", maxStd.studentName, maxStd.score, avg);
 
 			} else if (selectNo == 5) {
 				run = false;
