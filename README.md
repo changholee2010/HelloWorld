@@ -40,7 +40,28 @@
 
 
 ### [숙제🛒]
-1. 2차원 배열에서 
+1. 2차원 배열에서
+```
+public class TodoExe {
+	public static void main(String[] args) {
+		int[][] numAry = new int[3][5];
+		// 임의의 숫자 생성.
+		for (int outer = 0; outer < numAry.length; outer++) {
+			for (int inner = 0; inner < numAry[outer].length; inner++) {
+				numAry[outer][inner] = (int) (Math.random() * 100);
+			}
+		}
+
+	}
+}
+```
+
+각 배열의 numAry[0], numAry[1], numAry[2]의 평균을 출력하세요.
+아래의 모양처럼 출력이 되도록 하세요.
+numAry[0]의 평균은 34.56
+numAry[1]의 평균은 49.62
+numAry[2]의 평균은 69.30
+
 
 ## [일정]
 |일|월|화|수|목|금|토|
