@@ -63,6 +63,8 @@ public class TodoExe {
 - numAry[2]의 평균은 69.30
 
 
+[바로가기](https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/ref/app/TodoExe.java)
+
 ## [일정]
 |일|월|화|수|목|금|토|
 |---|---|---|---|---|---|---|
