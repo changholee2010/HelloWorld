@@ -12,9 +12,9 @@ public class TodoExe {
 		Student[] scores = null; // 학생점수저장.
 		Scanner scanner = new Scanner(System.in);
 		while (run) {
-			System.out.println("---------------------------------------");
-			System.out.println("1.학생수 2.점수입력 3.점수리스트 4.분석 5.종료");
-			System.out.println("---------------------------------------");
+			System.out.println("--------------------------------------------");
+			System.out.println("1.학생수 2.점수입력 3.점수리스트(성별) 4.분석 5.종료");
+			System.out.println("--------------------------------------------");
 			System.out.print("선택>> ");
 			int selectNo = Integer.parseInt(scanner.nextLine());
 			// 배열의 선언없이 메뉴를 선택할 경우에는 NullPointer예외.
@@ -36,11 +36,18 @@ public class TodoExe {
 					String name = scanner.nextLine(); // 이름저장.
 					System.out.printf("scores[%d] 점수>> ", i);
 					int score = Integer.parseInt(scanner.nextLine());
+//					Double.parseDouble("175.6"); 문자를 실수타입으로 변환.
+					System.out.printf("scores[%d] 키>> ", i);
+					double height = Double.parseDouble(scanner.nextLine());
+					System.out.printf("scores[%d] 성별>> ", i);
+					String gender = scanner.nextLine(); // 이름저장.
 
 					// 인스턴스 생성.
 					Student student = new Student();
 					student.studentName = name;
 					student.score = score;
+					student.height = height;
+					student.gender = gender;
 
 					scores[i] = student; // 배열에 저장.
 				}
@@ -61,20 +68,26 @@ public class TodoExe {
 					System.out.printf("scores[%d]> %s %d \n", i, scores[i].studentName, scores[i].score);
 				}
 
-			} else if (selectNo == 4) { // 분석(최고점수, 평균)
-				int max = 0, sum = 0; // 최고점수, 합계 변수선언.
+			} else if (selectNo == 4) { // 분석(최고큰 키, 평균)
+				double max = 0;
+				int sum = 0; // 최고점수, 합계 변수선언.
 				double avg = 0; // 평균 변수 선언.
 				Student maxStd = new Student(); // 최고점수를 받은 학생의 정보를 저장.
+
 				for (int i = 0; i < scores.length; i++) {
 					sum += scores[i].score; // 점수 누적.
-					if (max < scores[i].score) {
-						max = scores[i].score;
+					if (max < scores[i].height) {
+						max = scores[i].height;
+						// 최대값 저장.
 						maxStd.score = scores[i].score;
 						maxStd.studentName = scores[i].studentName;
+						maxStd.height = scores[i].height;
+						maxStd.gender = scores[i].gender;
+
 					}
 				}
 				avg = 1.0 * sum / scores.length;
-				System.out.printf("학생이름:%s, 최고점수: %d\n평균점수: %.2f\n", maxStd.studentName, maxStd.score, avg);
+				System.out.printf("학생이름:%s, 키: %.1f\n평균점수: %.2f\n", maxStd.studentName, maxStd.height, avg);
 
 			} else if (selectNo == 5) {
 				run = false;

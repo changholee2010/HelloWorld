@@ -8,4 +8,6 @@ package com.yedam.ref;
 public class Student {
 	String studentName; // 이름.
 	int score; // 점수.
+	double height; // 키.
+	String gender; // 성별.
 }
