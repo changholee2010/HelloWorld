@@ -2,15 +2,17 @@ package com.yedam;
 
 public class Calendar {
 	public static void showMonth(int month) {
-		int[] dayAry = new int[365];
-		int[] lastDateAry = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-		int idx = 0;
-//		int mon = month - 1;
-		int spaces = 3;
-		// 값을 저장.
+
+		// 초기변수 선언.
+		int[] dayAry = new int[365]; // 1년 365일.
+		int[] lastDateAry = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }; // 월별 마지막 일자.
+		int idx = 0; // 날짜를 지정할때 사용할 인덱스를 증가.
+		int spaces = 3; // 1월달의 공백갯수. 월마다 계산하기.
+
+		// 12달의 각 날짜를 배열에 저장.
 		for (int i = 0; i < lastDateAry.length; i++) {
-			int lastDate = lastDateAry[i];
-			for (int j = 1; j <= lastDate; j++) {
+			int lastDate = lastDateAry[i]; // 월별 말일을 가지고 온다.
+			for (int j = 1; j <= lastDate; j++) { // 1일부터 말일을 저장.
 				dayAry[idx++] = j;
 			}
 		}
@@ -18,23 +20,33 @@ public class Calendar {
 		System.out.println("=============================");
 		System.out.println(" Sun Mon Tue Wed Thu Fri Sat");
 		System.out.println("=============================");
-		for (int i = 0; i < spaces; i++) {
-			System.out.printf("%4s", " ");
-		}
 		// 날짜 출력.
-		int mong = 1;
+		int mong = 0;
 		for (int i = 0; i < dayAry.length; i++) {
-			if (mong == month) {
-				System.out.printf("%4d", dayAry[i]);
-			}
-			if (spaces++ % 7 == 6) {
-				System.out.println();
-			}
-			if (mong < 12 && dayAry[i] > dayAry[i + 1]) {
+			// 1일이면 월을 증가.
+			if (dayAry[i] == 1) {
 				mong++;
 			}
+			// 출력하고 싶은 월만 출력.
+			if (mong == month) {
+				// 월별로 1일마다 공란을 계산해야 하므로...
+				if (dayAry[i] == 1) {
+					// 빈공간 생성.
+					spaces = spaces % 7;
+					for (int s = 0; s < spaces; s++) {
+						System.out.printf("%4s", "_");
+					}
+
+				}
+				System.out.printf("%4d", dayAry[i]); // 월에 해당하는 날짜를 출력.
+				if (spaces % 7 == 6) {// 일주일에 한번씩 줄바꿈.
+					System.out.println();
+				}
+			}
+			spaces++; // 공란을 계속 증가. 7로 나눈 나머지를 사용하기 때문에 증가해둠.
 		}
-	}
+
+	} // end of showMonth(int).
 
 	public static void showMonth() {
 		int[] dayAry = new int[365];

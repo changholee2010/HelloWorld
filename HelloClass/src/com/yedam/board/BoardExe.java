@@ -41,13 +41,20 @@ public class BoardExe {
 		// 3번 기회. 숙제. 2025년 05월 21일.
 		// 아이디 입력.
 		// 비밀번호 입력.
-		String id = userMessage("아이디를 입력");
-		String pw = userMessage("비밀번호를 입력");
-		// 로그인 성공하면...
-		if (!UserExe.login(id, pw)) {
-			System.out.println("아이디와 비밀번호를 확인하세요.");
-			return;
-		}
+		for (int i = 1; i <= 3; i++) {
+			String id = userMessage("아이디를 입력");
+			String pw = userMessage("비밀번호를 입력");
+			// 로그인 성공하면...
+			if (!UserExe.login(id, pw)) {
+				System.out.println("아이디와 비밀번호를 확인하세요.");
+				if (i == 3) {
+					System.out.println("3번 실패했습니다. 종료합니다.");
+					return;
+				}
+				continue;
+			}
+			break; // 로그인을 성공하면 언제라도 반복문을 빠져 나와서 아래 코드를 실행.
+		} // 3번의 기회를 제공.
 		System.out.println("환영합니다!!!");
 
 		boolean run = true;
