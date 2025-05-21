@@ -5,7 +5,7 @@ public class Calendar {
 		int[] dayAry = new int[365];
 		int[] lastDateAry = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 		int idx = 0;
-		int mon = month - 1;
+//		int mon = month - 1;
 		int spaces = 3;
 		// 값을 저장.
 		for (int i = 0; i < lastDateAry.length; i++) {
@@ -14,11 +14,26 @@ public class Calendar {
 				dayAry[idx++] = j;
 			}
 		}
-		System.out.printf("%14d월\n", mon);
+		System.out.printf("%14d월\n", month);
 		System.out.println("=============================");
 		System.out.println(" Sun Mon Tue Wed Thu Fri Sat");
 		System.out.println("=============================");
-
+		for (int i = 0; i < spaces; i++) {
+			System.out.printf("%4s", " ");
+		}
+		// 날짜 출력.
+		int mong = 1;
+		for (int i = 0; i < dayAry.length; i++) {
+			if (mong == month) {
+				System.out.printf("%4d", dayAry[i]);
+			}
+			if (spaces++ % 7 == 6) {
+				System.out.println();
+			}
+			if (mong < 12 && dayAry[i] > dayAry[i + 1]) {
+				mong++;
+			}
+		}
 	}
 
 	public static void showMonth() {
