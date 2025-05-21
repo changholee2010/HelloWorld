@@ -2,6 +2,8 @@ package com.yedam.board;
 
 import java.util.Scanner;
 
+import com.yedam.Calendar;
+
 /*
  * 추가(addBoard)
  * /수정(modifyBoard) - 글번호, 바뀔내용, 바뀔제목
@@ -13,13 +15,13 @@ import java.util.Scanner;
 
 public class BoardExe {
 	// 필드.
-	private Board[] boards; // 데이터 저장.
+	private Board[] boards = new Board[100]; // 데이터 저장.
 	private Scanner scn = new Scanner(System.in);
 	private int bno = 2; // 배열인덱스를 2지정.
 
 	// 생성자.
 	public BoardExe() {
-		boards = new Board[100];
+//		boards = new Board[100];
 		boards[0] = new Board(10, "날씨가 좋습니다.", "오늘 기온이 30도입니다", "홍길동");
 		boards[1] = new Board(11, "자바가[11] 힘들어요", "자바는 힘들지 않아요...", "김민규");
 		boards[2] = new Board(12, "자바가[12] 힘들어요", "자바는 힘들지 않아요...", "김민규");
@@ -35,11 +37,24 @@ public class BoardExe {
 
 	// 메소드.
 	void execute() {
+
+		// 3번 기회. 숙제. 2025년 05월 21일.
+		// 아이디 입력.
+		// 비밀번호 입력.
+		String id = userMessage("아이디를 입력");
+		String pw = userMessage("비밀번호를 입력");
+		// 로그인 성공하면...
+		if (!UserExe.login(id, pw)) {
+			System.out.println("아이디와 비밀번호를 확인하세요.");
+			return;
+		}
+		System.out.println("환영합니다!!!");
+
 		boolean run = true;
 		while (run) {
-			System.out.println("--------------------------------");
+			System.out.println("--------------------------------------");
 			System.out.println("1.추가 2.수정 3.삭제 4.목록 5.종료");
-			System.out.println("--------------------------------");
+			System.out.println("--------------------------------------");
 			System.out.print("선택>> ");
 			int selectNo = Integer.parseInt(scn.nextLine());
 			switch (selectNo) {
@@ -72,7 +87,7 @@ public class BoardExe {
 	// "작성자를 입력하세요>> " 홍길동
 	// "추가성공"/ "추가실패" 메세지출력.
 	void addBoard() {
-		int no = nextSequence();//Integer.parseInt(userMessage("글번호를 입력하세요"));
+		int no = nextSequence();// Integer.parseInt(userMessage("글번호를 입력하세요"));
 		String title = userMessage("제목을 입력하세요");
 		String content = userMessage("내용을 입력하세요");
 		String writer = userMessage("작성자를 입력하세요");
@@ -86,12 +101,12 @@ public class BoardExe {
 	} // end of addBoard.
 
 	/* 기능 */
-	// 글번호     제목          작성자
+	// 글번호 제목 작성자
 	// ==============================
-	//   1   날씨가 좋아요      홍길동
-	//   2   클래스 멋짐!       김민규
-	//   3   자바어려움         박석민
-	//   4   그래도 열심히!!    김민규
+	// 1 날씨가 좋아요 홍길동
+	// 2 클래스 멋짐! 김민규
+	// 3 자바어려움 박석민
+	// 4 그래도 열심히!! 김민규
 	// ------------------------------
 	// 상세보기: 글번호입력, 메뉴로 이동(q)
 	// ------------------------------
@@ -119,7 +134,7 @@ public class BoardExe {
 			String str = scn.nextLine();
 			// 메뉴,상세
 			if (str.equals("q")) {
-				break;//return;
+				break;// return;
 			} else if (str.equals("n")) {
 				page++;
 			} else if (str.equals("p")) {
@@ -187,7 +202,7 @@ public class BoardExe {
 		System.out.print(msg + ">> ");
 		return Integer.parseInt(scn.nextLine());
 	}
-	
+
 	// 순번생성.
 	int nextSequence() {
 		int max = 0;
