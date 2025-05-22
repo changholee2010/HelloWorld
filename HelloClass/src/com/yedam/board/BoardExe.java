@@ -35,9 +35,8 @@ public class BoardExe {
 		boards[10] = new Board(20, "자바가[20] 힘들어요", "자바는 힘들지 않아요...", "김민규");
 	}
 
-	// 메소드.
-	void execute() {
-
+	// loginCheck()
+	boolean loginCheck() {
 		// 3번 기회. 숙제. 2025년 05월 21일.
 		// 아이디 입력.
 		// 비밀번호 입력.
@@ -49,12 +48,21 @@ public class BoardExe {
 				System.out.println("아이디와 비밀번호를 확인하세요.");
 				if (i == 3) {
 					System.out.println("3번 실패했습니다. 종료합니다.");
-					return;
+					return false;
 				}
 				continue;
-			}
-			break; // 로그인을 성공하면 언제라도 반복문을 빠져 나와서 아래 코드를 실행.
+			} // 실패의 경우.
+//		    로그인을 성공하면 언제라도 반복문을 빠져 나와서 아래 코드를 실행.
+			return true;
 		} // 3번의 기회를 제공.
+		return false;
+	} // end of loginCheck().
+
+	// 메소드.
+	void execute() {
+		if (!loginCheck()) {
+			return; // execute()메소드의 종료.
+		}
 		System.out.println("환영합니다!!!");
 
 		boolean run = true;

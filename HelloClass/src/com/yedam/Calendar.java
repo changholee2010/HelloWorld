@@ -1,6 +1,9 @@
 package com.yedam;
 
 public class Calendar {
+	
+	// 1년 365일에 해당하는 월별 날짜를 배열에 저장하고
+	// 출력하고자 하는 월의 내용만 화면에 출력한다.
 	public static void showMonth(int month) {
 
 		// 초기변수 선언.
@@ -9,7 +12,7 @@ public class Calendar {
 		int idx = 0; // 날짜를 지정할때 사용할 인덱스를 증가.
 		int spaces = 3; // 1월달의 공백갯수. 월마다 계산하기.
 
-		// 12달의 각 날짜를 배열에 저장.
+		//  열두달의 각 날짜를 배열에 저장.
 		for (int i = 0; i < lastDateAry.length; i++) {
 			int lastDate = lastDateAry[i]; // 월별 말일을 가지고 온다.
 			for (int j = 1; j <= lastDate; j++) { // 1일부터 말일을 저장.
