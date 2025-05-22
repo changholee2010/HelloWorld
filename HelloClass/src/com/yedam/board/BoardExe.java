@@ -71,7 +71,15 @@ public class BoardExe {
 			System.out.println("1.추가 2.수정 3.삭제 4.목록 5.종료");
 			System.out.println("--------------------------------------");
 			System.out.print("선택>> ");
-			int selectNo = Integer.parseInt(scn.nextLine());
+			// 문자를 숫자 변경 예외발생.
+			int selectNo = 0;
+			// 예외처리.
+			try {
+				selectNo = Integer.parseInt(scn.nextLine());
+			} catch (NumberFormatException e) {
+				System.out.println("1 ~ 5번중에 선택.");
+				continue;
+			}
 			switch (selectNo) {
 			case 1: // 추가.
 				addBoard();
@@ -155,7 +163,14 @@ public class BoardExe {
 			} else if (str.equals("p")) {
 				page--;
 			} else {
-				int no = Integer.parseInt(str);
+				// 글번호외에 다른 문자가 들어오면...예외처리.
+				int no = 0;
+				try {
+					no = Integer.parseInt(str); // 글번호입력.
+				} catch (NumberFormatException e) {
+					System.out.println("목록에 있는 글번호를 선택하세요.");
+					continue; // 다시 목록부터 보여주기.
+				}
 				// 배열에서 조회.
 				Board sboard = getBoard(no);
 				if (sboard == null) {
