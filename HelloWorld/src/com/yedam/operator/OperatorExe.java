@@ -1,5 +1,7 @@
 package com.yedam.operator;
 
+import java.util.Calendar;
+
 public class OperatorExe {
 
 	public static void main(String[] args) {
@@ -30,37 +32,25 @@ public class OperatorExe {
 	// "월" 정보를 입력하면 "공란" 반환하는 메소드. getSpace()
 	public static int getSpace(int month) {
 		int space = 0;
-		if (month == 3) { // 3월달
-			space = 6;
-		} else if (month == 4) {// 4월달
-			space = 2;
-		} else if (month == 5) {// 5월달
-			space = 4;
-		} else if (month == 7) {// 7월달
-			space = 2;
-		}
+		Calendar now = Calendar.getInstance();
+		now.set(2025, month - 1, 1);
+		space = now.get(Calendar.DAY_OF_WEEK) - 1;
 		return space;
 	} // end of getSpace.
 
 	// "월" 정보를 입력하면 말일을 알려주는 메소드 getLastDate(월)
 	public static int getLastDate(int month) {
 		int lastDate = 31;
-		switch (month) {
-		case 2:
-			lastDate = 28;
-			break;
-		case 4:
-		case 6:
-		case 9:
-		case 11:
-			lastDate = 30;
-			break;
-		}
+		// Calendar 객체를 활용해서 말일 가져오기.
+		Calendar now = Calendar.getInstance();
+		now.set(2025, month - 1, 1);
+		lastDate = now.getActualMaximum(Calendar.DATE);
+
 		return lastDate;
 	} // end of getLastDate.
 
 	public static void test4() {
-		int mon = 4; // 월정보입력...
+		int mon = 9; // 월정보입력...
 		System.out.printf("           <%02d월>           ", mon);
 		System.out.println("\nSun Mon Tue Wed Thu Fri Sat");
 		int space = getSpace(mon);
