@@ -40,14 +40,11 @@ public class MemberExe {
 //				member.setPhone(telNo);
 //				member.setPoint(point);
 
-				// 배열에 추가.
-				for (int i = 0; i < members.length; i++) {
-					if (members[i] == null) {
-						members[i] = member;
-						System.out.println("등록완료.");
-						break; // 한건을 추가했으면 반복문 종료.
-					}
+				// arraylist에 추가.
+				if (members.add(member)) {
+					System.out.println("등록성공");
 				}
+
 				break; // switch의 case 1 종료.
 
 			case 2: // 수정.
@@ -57,12 +54,10 @@ public class MemberExe {
 				telNo = scn.nextLine();
 
 				// 같은 값을 찾아서 변경하기.
-				for (int i = 0; i < members.length; i++) {
-					if (members[i] != null) {
-						if (members[i].getMemberId().equals(id)) {
-							members[i].setPhone(telNo);
-							System.out.println("수정완료.");
-						}
+				for (int i = 0; i < members.size(); i++) {
+					if (members.get(i).getMemberId().equals(id)) {
+						members.get(i).setPhone(telNo);
+						System.out.println("수정완료.");
 					}
 				}
 				break;
@@ -72,12 +67,10 @@ public class MemberExe {
 				id = scn.nextLine();
 
 				// 같은 값을 찾아서 삭제하기.
-				for (int i = 0; i < members.length; i++) {
-					if (members[i] != null) {
-						if (members[i].getMemberId().equals(id)) {
-							members[i] = null;
-							System.out.println("삭제완료.");
-						}
+				for (int i = 0; i < members.size(); i++) {
+					if (members.get(i).getMemberId().equals(id)) {
+						members.remove(i);
+						System.out.println("삭제완료.");
 					}
 				}
 				break;
@@ -88,13 +81,12 @@ public class MemberExe {
 
 				// 조회.
 				System.out.printf("%-10s %-5s %-15s\n", "UserId", "회원명", "TelNo");
-				for (int i = 0; i < members.length; i++) {
-					if (members[i] != null //
-							&& (name.equals("") || name.equals(members[i].getMemberName()))) {
+				for (int i = 0; i < members.size(); i++) {
+					if (name.equals("") || name.equals(members.get(i).getMemberName())) {
 						System.out.printf("%-10s %-5s %-15s\n"//
-								, members[i].getMemberId()//
-								, members[i].getMemberName()//
-								, members[i].getPhone());
+								, members.get(i).getMemberId()//
+								, members.get(i).getMemberName()//
+								, members.get(i).getPhone());
 					}
 				}
 				break;
