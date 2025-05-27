@@ -49,7 +49,7 @@ public class StreamExe4 {
 		System.out.println("end of prog.");
 	}
 
-	static void serial() { // 객체 -> 출력스트림.
+	static void serial() { // 객체 -> 출력스트림. Object->byte
 		List<Product> list = new ArrayList<>();
 		list.add(new Product("P001"));
 		list.add(new Product("P002"));
