@@ -15,7 +15,7 @@ public class MemberStream {
 	List<Member> storage = new ArrayList<>();
 
 	public MemberStream() {
-		init();
+		init(); // 파일을 읽어 초기값을 활성화.
 	}
 
 	// 등록.

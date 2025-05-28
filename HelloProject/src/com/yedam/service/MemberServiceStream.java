@@ -5,6 +5,10 @@ import java.util.List;
 import com.yedam.common.MemberStream;
 import com.yedam.vo.Member;
 
+/*
+ * MemberService의 메소드를 그대로 사용해서 기능을 구현하고 있음.
+ * 저장은 c:/temp/member.db 이용하여 MemberStream에 기능이 구현됨.
+ */
 public class MemberServiceStream implements MemberService {
 	MemberStream ms = new MemberStream();
 
