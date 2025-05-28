@@ -13,7 +13,11 @@ import com.yedam.vo.Member;
 public class MemberApp {
 	public void execute() {
 		Scanner scn = new Scanner(System.in);
-		MemberService svc = new MemberServiceStream();// new MemberServiceDAO();
+		MemberService svc;
+
+		// 2개중에 선택해서 기능을 실행할 수 있음.
+		svc = new MemberServiceStream(); // 1) 파일에 저장.
+//		svc = new MemberServiceDAO(); // 2) DB에 저장.
 
 		boolean run = true;
 		while (run) {
@@ -69,6 +73,7 @@ public class MemberApp {
 			} // end of switch.
 		} // end of while.
 		System.out.println("end of prog.");
+		scn.close();
 	} // end of execute.
 
 }
