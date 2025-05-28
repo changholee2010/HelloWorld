@@ -1,8 +1,11 @@
 package com.yedam.vo;
+
+import java.io.Serializable;
+
 /*
  * db의 테이블의 데이터(tbl_member)에 대응.
  */
-public class Member {
+public class Member implements Serializable {
 	private String memberId; // member_id
 	private String memberName;
 	private String phone;

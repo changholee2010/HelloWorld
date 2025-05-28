@@ -12,4 +12,5 @@ public interface MemberService {
 	public boolean modifyMember(Member member);//변경.
 	public boolean removeMember(String memberId);//삭제.
 	public List<Member> memberList();//출력.
+	public void save();
 }
