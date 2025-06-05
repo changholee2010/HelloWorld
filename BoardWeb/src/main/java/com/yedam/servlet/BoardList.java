@@ -14,12 +14,14 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
 import com.yedam.mapper.BoardMapper;
+import com.yedam.service.BoardService;
+import com.yedam.service.BoardServiceImpl;
 import com.yedam.vo.BoardVO;
 
 /**
  * Servlet implementation class BoardList
  */
-@WebServlet("/boardList.serv")
+@WebServlet("/servlet/boardList.serv")
 public class BoardList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -34,11 +36,9 @@ public class BoardList extends HttpServlet {
 		out.print("<h3>hello</h3>");
 		out.print("<p>나는 한글</p>");
 
-		SqlSession sqlSession //
-				= DataSource.getInstance().openSession();
-		// 인터페이스 - 매퍼.
-		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
-		List<BoardVO> list = mapper.selectList();
+		// 업무 서비스.
+		BoardService svc = new BoardServiceImpl();
+		List<BoardVO> list = svc.boardList();
 
 		out.print("<table border='1'>");
 		out.print("<thead><tr><th>글번호</th><th>제목</th><th>작성자</th></tr></thead>");
@@ -46,11 +46,15 @@ public class BoardList extends HttpServlet {
 		for (int i = 0; i < list.size(); i++) {
 			out.print("<tr>");
 			out.print("<td align='center'>" + list.get(i).getBoardNo() + "</td>");
-			out.print("<td>" + list.get(i).getTitle() + "</td>");
+			out.print("<td><a href='../board.serv?bno=" //
+					+ list.get(i).getBoardNo() + "'>" //
+					+ list.get(i).getTitle() + "</a></td>");
 			out.print("<td>" + list.get(i).getWriter() + "</td>");
 			out.print("</tr>");
 		}
 		out.print("</tbody></table>");
+		// index페이지로 이동.
+		out.print("<a href='../html/addForm.html'>등록페이지</a>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
