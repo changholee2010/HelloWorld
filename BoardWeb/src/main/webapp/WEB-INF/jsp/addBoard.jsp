@@ -27,8 +27,8 @@
       </tr>
       <tr>
         <td colspan="2" align="center">
-          <input type="submit" value="등록">
-          <input type="reset" value="취소">
+          <input type="submit" class="btn btn-primary" value="등록">
+          <input type="reset" class="btn btn-warning" value="취소">
         </td>
       </tr>
     </table>
