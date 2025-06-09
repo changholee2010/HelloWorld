@@ -29,8 +29,8 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// boardList.do - 글목록 출력 기능.
 		// 처리순서가 중요.
-		map.put("/boardList.do", new BoardListControl());
-		map.put("/board.do", new BoardControl());
+		map.put("/boardList.do", new BoardListControl()); //글목록.
+		map.put("/board.do", new BoardControl()); //상세화면.
 		map.put("/addBoard.do", new AddBoardControl());
 	}
 
