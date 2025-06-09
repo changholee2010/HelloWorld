@@ -8,8 +8,9 @@ import com.yedam.vo.BoardVO;
  * 업무단위의 처리.
  */
 public interface BoardService {
-    public List<BoardVO> boardList();//목록조회.
+    public List<BoardVO> boardList(int page);//목록조회.
     public BoardVO getBoard(int bno);//단건조회.
     public boolean registerBoard(BoardVO board);//등록기능.
-    
+    public boolean modifyBoard(BoardVO board);//수정기능.
+    public boolean removeBoard(int bno);//삭제기능.
 }

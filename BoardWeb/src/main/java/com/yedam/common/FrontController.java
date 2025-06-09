@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.control.AddBoardControl;
 import com.yedam.control.BoardControl;
 import com.yedam.control.BoardListControl;
+import com.yedam.control.ModifyBoardControl;
+import com.yedam.control.RemoveBoardControl;
 
 /*
  * M-V-Control역할.
@@ -32,6 +34,8 @@ public class FrontController extends HttpServlet {
 		map.put("/boardList.do", new BoardListControl()); //글목록.
 		map.put("/board.do", new BoardControl()); //상세화면.
 		map.put("/addBoard.do", new AddBoardControl());
+		map.put("/modifyBoard.do", new ModifyBoardControl()); //수정화면
+		map.put("/removeBoard.do", new RemoveBoardControl()); //삭제화면
 	}
 
 	@Override

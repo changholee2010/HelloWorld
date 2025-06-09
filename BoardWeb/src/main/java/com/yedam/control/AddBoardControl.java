@@ -45,7 +45,7 @@ public class AddBoardControl implements Control {
 			if (svc.registerBoard(board)) {
 				System.out.println("등록성공.");
 				// 목록페이지로 이동.
-//				resp.sendRedirect("servlet/boardList.serv");
+				resp.sendRedirect("boardList.do");
 			} else {
 				System.out.println("등록실패.");
 			}
