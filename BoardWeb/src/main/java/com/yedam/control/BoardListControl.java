@@ -27,7 +27,7 @@ public class BoardListControl implements Control {
 		BoardService svc = new BoardServiceImpl();
 		List<BoardVO> list = svc.boardList(Integer.parseInt(page));
 		// 페이징 계산.
-		int totalCnt = 112;
+		int totalCnt = svc.getTotalCount();
 		PageDTO paging = new PageDTO(Integer.parseInt(page), totalCnt);
 
 		req.setAttribute("blist", list); // 요청정보에 값을 담아서 전달.

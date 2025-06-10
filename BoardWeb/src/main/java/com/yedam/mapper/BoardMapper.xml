@@ -70,6 +70,11 @@
     delete from tbl_board
     where board_no = #{bno}
   </delete>
+  
+  <!-- 전체 건수. -->
+  <select id="selectCount" resultType="int">
+    select count(1) from tbl_board
+  </select>
 
 </mapper>
 

@@ -13,4 +13,6 @@ public interface BoardService {
     public boolean registerBoard(BoardVO board);//등록기능.
     public boolean modifyBoard(BoardVO board);//수정기능.
     public boolean removeBoard(int bno);//삭제기능.
+    // 전체카운트 계산.
+    public int getTotalCount(); // selectCount() :매퍼쪽.
 }

@@ -15,4 +15,6 @@ public interface BoardMapper {
 	public int insertBoard(BoardVO board);
 	public int updateBoard(BoardVO board);
 	public int deleteBoard(int bno);
+	//전체 건수.
+	public int selectCount();
 }

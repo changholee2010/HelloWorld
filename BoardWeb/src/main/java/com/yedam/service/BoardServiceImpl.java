@@ -56,4 +56,9 @@ public class BoardServiceImpl implements BoardService {
 		}
 		return false;
 	}
+
+	@Override
+	public int getTotalCount() {
+		return mapper.selectCount();
+	}
 }

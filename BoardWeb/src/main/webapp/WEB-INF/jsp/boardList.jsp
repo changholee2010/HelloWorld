@@ -10,6 +10,8 @@
   %>
   <p><%=paging %></p>
   <h3>게시글 목록</h3>
+<!-- 검색조건추가. -->
+
 
   <table class="table">
     <thead>
@@ -43,8 +45,13 @@
   
   <!-- paging 정보를 활용. -->
   <%for(int p = paging.getStart(); p <= paging.getEnd(); p++) { %>
+  <%  if(p != paging.getCurrentPage()) {%>
   <li class="page-item"><a class="page-link" href="boardList.do?page=<%=p %>"><%=p %></a></li>
-  <%} %>
+  <%}else{ %>
+  <li class="page-item active" aria-current="page">
+    <span class="page-link"><%=p %></span>
+  </li>
+  <%} } %>
 
   <!-- 이후페이지 활성화. -->
   <%if(!paging.isNext()) {%>
