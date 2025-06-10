@@ -18,13 +18,13 @@
     <div class="col-sm-4">
       <select name="searchCondition" class="form-control">
         <option value="">선택하세요</option>
-        <option value="T">제목</option>
-        <option value="W">작성자</option>
-        <option value="TW">제목&작성자</option>
+        <option value="T" <%=search.getSearchCondition() != null && search.getSearchCondition().equals("T") ? "selected": "" %>>제목</option>
+        <option value="W" <%=search.getSearchCondition() != null && search.getSearchCondition().equals("W") ? "selected": "" %>>작성자</option>
+        <option value="TW" <%=search.getSearchCondition() != null && search.getSearchCondition().equals("TW") ? "selected": "" %>>제목&작성자</option>
       </select>
     </div>
     <div class="col-sm-6">
-      <input type="text" name="keyword" class="form-control">
+      <input type="text" name="keyword" class="form-control" value="<%=search.getKeyword() == null ? "" : search.getKeyword()%>">
     </div>
     <div class="col-sm-2">
       <input type="submit" value="검색" class="btn btn-primary">
@@ -41,8 +41,10 @@
     <tbody>
       <%for (BoardVO board : list) {%>
       <tr>
-        <td><a href="board.do?bno=<%=board.getBoardNo() %>"><%=board.getBoardNo() %></a></td><td><%=board.getTitle() %></td>
-        <td><%=board.getWriter() %></td><td><%=board.getWriteDate() %></td>
+        <td><a href="board.do?bno=<%=board.getBoardNo() %>&searchCondition=<%=search.getSearchCondition() %>&keyword=<%=search.getKeyword() %>&page=<%=paging.getCurrentPage()%>"><%=board.getBoardNo() %></a></td>
+        <td><%=board.getTitle() %></td>
+        <td><%=board.getWriter() %></td>
+        <td><%=board.getWriteDate() %></td>
         <td><%=board.getReadCnt() %></td>
       </tr>
       <%} %>
