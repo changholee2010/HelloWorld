@@ -1,3 +1,4 @@
+<%@page import="com.yedam.common.SearchDTO"%>
 <%@page import="com.yedam.common.PageDTO"%>
 <%@page import="com.yedam.vo.BoardVO"%>
 <%@page import="java.util.List"%>
@@ -7,11 +8,29 @@
   <%
     List<BoardVO> list = (List<BoardVO>) request.getAttribute("blist");
     PageDTO paging = (PageDTO) request.getAttribute("pageInfo");
+    SearchDTO search = (SearchDTO) request.getAttribute("search");
   %>
   <p><%=paging %></p>
   <h3>게시글 목록</h3>
 <!-- 검색조건추가. -->
-
+<form action="boardList.do">
+  <div class="row">
+    <div class="col-sm-4">
+      <select name="searchCondition" class="form-control">
+        <option value="">선택하세요</option>
+        <option value="T">제목</option>
+        <option value="W">작성자</option>
+        <option value="TW">제목&작성자</option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <input type="text" name="keyword" class="form-control">
+    </div>
+    <div class="col-sm-2">
+      <input type="submit" value="검색" class="btn btn-primary">
+    </div>
+  </div>
+</form>
 
   <table class="table">
     <thead>
@@ -46,7 +65,9 @@
   <!-- paging 정보를 활용. -->
   <%for(int p = paging.getStart(); p <= paging.getEnd(); p++) { %>
   <%  if(p != paging.getCurrentPage()) {%>
-  <li class="page-item"><a class="page-link" href="boardList.do?page=<%=p %>"><%=p %></a></li>
+  <li class="page-item">
+    <a class="page-link" href="boardList.do?searchCondition=<%=search.getSearchCondition()%>&keyword=<%=search.getKeyword() %>&page=<%=p %>"><%=p %></a>
+  </li>
   <%}else{ %>
   <li class="page-item active" aria-current="page">
     <span class="page-link"><%=p %></span>

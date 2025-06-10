@@ -11,11 +11,22 @@
   </select>
   
   <!-- 페이징 조회. -->
-  <select id="selectListWithPaging" parameterType="int" resultType="Board">
+  <select id="selectListWithPaging" parameterType="Search" resultType="Board">
     select b.*
     from  (select rownum rn, a.*
            from  (select *
                   from tbl_board
+                  <choose>
+                    <when test="searchCondition != null and searchCondition == 'T'.toString() ">
+                      where title like '%'||#{keyword}||'%'
+                    </when>
+                    <when test="searchCondition != null and searchCondition == 'W'.toString() ">
+                      where writer like '%'||#{keyword}||'%'
+                    </when>
+                    <when test="searchCondition != null and searchCondition == 'TW'.toString() ">
+                      where (title like '%'||#{keyword}||'%') or (writer like '%'||#{keyword}||'%')
+                    </when>
+                  </choose>
                   order by board_no desc) a) b
            where b.rn > (#{page} - 1) * 5
     <![CDATA[
@@ -72,8 +83,19 @@
   </delete>
   
   <!-- 전체 건수. -->
-  <select id="selectCount" resultType="int">
+  <select id="selectCount" resultType="int" parameterType="Search">
     select count(1) from tbl_board
+    <choose>
+      <when test="searchCondition != null and searchCondition == 'T'.toString() ">
+        where title like '%'||#{keyword}||'%'
+      </when>
+      <when test="searchCondition != null and searchCondition == 'W'.toString() ">
+        where writer like '%'||#{keyword}||'%'
+      </when>
+      <when test="searchCondition != null and searchCondition == 'TW'.toString() ">
+        where (title like '%'||#{keyword}||'%') or (writer like '%'||#{keyword}||'%')
+      </when>
+    </choose>
   </select>
 
 </mapper>
