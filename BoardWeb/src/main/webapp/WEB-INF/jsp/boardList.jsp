@@ -3,8 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<jsp:include page="../include/header.jsp" />
-
 <h3>게시글 목록</h3>
 <!-- 검색조건추가. -->
 <form action="boardList.do">
@@ -98,4 +96,3 @@
   </ul>
 </nav>
 <!-- paging 종료. -->
-<jsp:include page="../include/footer.jsp" />
