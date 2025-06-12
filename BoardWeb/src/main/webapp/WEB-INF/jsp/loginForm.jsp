@@ -36,7 +36,7 @@
                                                 <label for="inputEmail">Your ID</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" type="password" name="pass" placeholder="Password" />
+                                                <input class="form-control" type="password" name="pass" value="1111" placeholder="Password" />
                                                 <label for="inputPassword">Password</label>
                                             </div>
                                             <div class="form-check mb-3">

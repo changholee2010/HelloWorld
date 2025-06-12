@@ -9,6 +9,7 @@
 
   <typeAliases>
     <typeAlias alias="Board" type="com.yedam.vo.BoardVO"/>
+    <typeAlias alias="Reply" type="com.yedam.vo.ReplyVO"/>
     <typeAlias alias="Search" type="com.yedam.common.SearchDTO"/>
     <typeAlias alias="Member" type="com.yedam.vo.MemberVO"/>
   </typeAliases>
@@ -28,6 +29,7 @@
   <mappers>
     <mapper resource="com/yedam/mapper/BoardMapper.xml"/>
     <mapper resource="com/yedam/mapper/MemberMapper.xml"/>
+    <mapper resource="com/yedam/mapper/ReplyMapper.xml"/>
   </mappers>
 
 </configuration>

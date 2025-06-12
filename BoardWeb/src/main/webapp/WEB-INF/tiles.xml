@@ -28,10 +28,22 @@
     <put-attribute name="body" value="/WEB-INF/layout/body_a.jsp" />
     <put-attribute name="footer" value="/WEB-INF/layout/footer_a.jsp" />
   </definition>
-  
+
   <!-- 추가 definition. -->
   <definition name="WILDCARD:user/*" extends="user">
     <put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" />
   </definition>
-  
+
+  <definition name="WILDCARD:admin/*" extends="admin">
+    <put-attribute name="body" value="/WEB-INF/jsp/member/{1}.jsp" />
+  </definition>
+
+  <definition name="WILDCARD:admin/board/*" extends="admin">
+    <put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp" />
+  </definition>
+  <!-- 마지막. -->
+  <definition name="WILDCARD:*/*" extends="user">
+    <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}.jsp" />
+  </definition>
+
 </tiles-definitions>
