@@ -5,8 +5,11 @@
 <mapper namespace="com.yedam.mapper.ReplyMapper">
 
 	<insert id="insertReply" parameterType="Reply">
+		<selectKey keyProperty="replyNo" order="BEFORE" resultType="int">
+			select reply_seq.nextval from dual
+		</selectKey>
 		insert into tbl_reply (reply_no, board_no, reply, replyer)
-		values (reply_seq.nextval, #{boardNo}, #{reply}, #{replyer})
+		values (#{replyNo}, #{boardNo}, #{reply}, #{replyer})
 	</insert>
 
 	<delete id="deleteReply" parameterType="int">
@@ -24,6 +27,7 @@
 		select *
 		from tbl_reply
 		where board_no = #{bno}
+		order by reply_no desc
 	</select>
 
 </mapper>
