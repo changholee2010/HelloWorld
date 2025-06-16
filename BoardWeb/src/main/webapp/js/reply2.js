@@ -168,6 +168,6 @@ async function deleteReply(e) {
 			}
 		}
 		, err => console.log(err)
-	);// 삭제메소드.
+	)// 삭제메소드.
 
 } // end of deleteReply.
