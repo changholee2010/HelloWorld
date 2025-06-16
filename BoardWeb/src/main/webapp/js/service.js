@@ -7,9 +7,9 @@ const svc = {
 		return num1 + num2;
 	},
 	// 목록출력메소드.
-	replyList(bno, successCallback, errorCallback) {
+	replyList(param = { bno, page }, successCallback, errorCallback) {
 		// ajax호출.
-		fetch('replyList.do?bno=' + bno)
+		fetch('replyList.do?bno=' + param.bno + '&page=' + param.page)
 			.then(data => data.json())
 			.then(successCallback)
 			.catch(errorCallback)
@@ -30,6 +30,14 @@ const svc = {
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 			body: 'bno=' + param.bno + '&reply=' + param.reply + '&replyer=' + param.replyer
 		})
+			.then(data => data.json())
+			.then(successCallback)
+			.catch(errorCallback)
+	},
+	// 댓글전체건수.
+	replyCount(bno, successCallback, errorCallback) {
+		// ajax.
+		fetch('replyCount.do?bno=' + bno)
 			.then(data => data.json())
 			.then(successCallback)
 			.catch(errorCallback)
