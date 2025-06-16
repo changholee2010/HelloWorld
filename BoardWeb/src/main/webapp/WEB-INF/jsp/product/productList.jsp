@@ -33,4 +33,5 @@
 <script>
   const logId = "${logId}";
 </script>
-<script src="js/promise.js"></script>
+<script src="js/service.js"></script>
+<script src="js/ajax2.js"></script>
