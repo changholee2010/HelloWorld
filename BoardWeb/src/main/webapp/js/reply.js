@@ -16,29 +16,36 @@ Date.prototype.format = function() {
 		+ ('0' + hh).slice(-2) + ':' + ('0' + mm).slice(-2)// 
 	//+ ':' + ('0' + ss).slice(-2);
 }
+// 댓글목록 출력.
+showReplyList();
+function showReplyList() {
+	document.querySelector('#target').innerHTML = ""; // 목록지우기.
+	svc.replyList({ bno, page } //게시글번호
+		, result => {
+			let ul = document.querySelector('#target');
+			let template = document.querySelector('#target li');
+			console.log(result);
+			for (let reply of result) {
+				template = makeTemplate(reply);
+				//
+				ul.insertAdjacentHTML("beforeend", template);
+			}
+			// 댓글페이지.
+			showPageList();
+		}
+		, err => console.log(err)
+	);
+} // end of showReplyList.
 // 이벤트.
 // 1)댓글등록이벤트.
 document.querySelector('#addReply').addEventListener('click', addReplyHandler);
+
 // 2)댓글링크 이벤트등록.
 function pagingEvent() {
 	document.querySelectorAll('.footer nav a').forEach(function(elem, idx) {
 		elem.addEventListener('click', function(e) {
-			document.querySelector('#target').innerHTML = ""; // <ul></ul>
-			page = e.target.innerHTML; // a태그의 <a>1</a>
-			svc.replyList({ bno, page } //게시글번호
-				, result => {
-					let ul = document.querySelector('#target');
-					let template = "";//document.querySelector('#target li');
-					// 5건씩 화면에 출력.
-					for (let reply of result) {
-						template = makeTemplate(reply);
-						ul.insertAdjacentHTML("beforeend", template);
-					}
-					// 댓글페이지.
-					showPageList();
-				}
-				, err => console.log(err)
-			);
+			page = e.target.dataset.page; // a태그의 <a data-page="1">1</a>
+			showReplyList();
 		})
 	});
 } // end of pagingEvent.
@@ -55,30 +62,15 @@ function addReplyHandler(e) {
 			let ul = document.querySelector('#target');
 			if (result.retCode == "Success") {
 				let rval = result.retVal; // 반환값에는 retCode, retVal 있음.
-				ul.insertAdjacentHTML("afterbegin", makeTemplate(rval));
+				//ul.insertAdjacentHTML("afterbegin", makeTemplate(rval));
+				page = 1; //첫페이지로 지정.
+				showReplyList(); // 목록출력.
 				document.querySelector('#reply').value = ""; // 입력값 초기화.
 			} // end of if.
 		} // 두번째 매개값.
 		, err => console.log(err) // 세번째 매개값.
 	)
 } // end of addReplyHandler.
-// 글목록 출력.
-page = 2;
-svc.replyList({ bno, page } //게시글번호
-	, result => {
-		let ul = document.querySelector('#target');
-		let template = document.querySelector('#target li');
-		console.log(result);
-		for (let reply of result) {
-			template = makeTemplate(reply);
-			//
-			ul.insertAdjacentHTML("beforeend", template);
-		}
-		// 댓글페이지.
-		showPageList();
-	}
-	, err => console.log(err)
-);
 // 댓글페이징 출력.
 function showPageList() {
 	svc.replyCount(bno // 첫번째매개값.
@@ -101,34 +93,34 @@ function showPageList() {
 			let str;
 			if (prev) {
 				str = `<li class="page-item">
-			         <a class="page-link" href="#">Previous</a>
-			       </li>`;
+			           <a class="page-link" href="#" data-page="${start - 1}">Previous</a>
+			         </li>`;
 			} else {
 				str = `<li class="page-item disabled">
-			         <span class="page-link" href="#">Previous</span>
-			       </li>`;
+			           <span class="page-link" href="#">Previous</span>
+			         </li>`;
 			}
 			target.insertAdjacentHTML('beforeend', str);
 			// 1 ~ 10 페이징.
 			for (let p = start; p <= end; p++) {
 				if (p == page) { // 선택페이지 지정.
 					str = `<li class="page-item active" aria-current="page">
-				         <span class="page-link">${p}</span>
-				       </li>`;
+				           <span class="page-link">${p}</span>
+				         </li>`;
 				} else {
-					str = `<li class="page-item"><a class="page-link" href="#">${p}</a></li>`;
+					str = `<li class="page-item"><a class="page-link" href="#" data-page="${p}">${p}</a></li>`;
 				}
 				target.insertAdjacentHTML('beforeend', str);
 			}
 			// 이후페이지.
 			if (next) {
 				str = `<li class="page-item">
-				     <a class="page-link" href="#">Next</a>
-				   </li>`;
+				         <a class="page-link" href="#" data-page="${end + 1}">Next</a>
+				       </li>`;
 			} else {
 				str = `<li class="page-item disabled">
-				     <span class="page-link" href="#">Next</span>
-				   </li>`;
+				         <span class="page-link" href="#">Next</span>
+				       </li>`;
 			}
 			target.insertAdjacentHTML('beforeend', str);
 			// 생성한 A태그에 이벤트등록.
@@ -158,7 +150,8 @@ function deleteReply(e) {
 		, result => {
 			if (result.retCode == "Success") {
 				alert("처리성공!");
-				e.target.parentElement.parentElement.remove();
+				//e.target.parentElement.parentElement.remove();
+				showReplyList();
 			} else {
 				alert("처리실패!");
 			}
