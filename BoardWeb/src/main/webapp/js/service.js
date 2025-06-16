@@ -41,13 +41,6 @@ const svc = {
 			.then(data => data.json())
 			.then(successCallback)
 			.catch(errorCallback)
-	},
-	// 댓글의 작성자정보등 가져오기.
-	replyInfo(rno, successCallback, errorCallback) {
-		fetch('replyInfo.do?rno=' + rno)
-			.then(data => data.json())
-			.then(successCallback)
-			.catch(errorCallback)
 	}
 }
 
