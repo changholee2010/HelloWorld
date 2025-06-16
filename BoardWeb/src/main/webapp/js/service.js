@@ -35,10 +35,12 @@ const svc = {
 			.catch(errorCallback)
 	}
 }
+
 // add함수.
 const add = (num1, num2) => {
 	return num1 + num2;
 }
+
 // 댓글을 row 생성.
 function makeRow(item) {
 	let tr = document.createElement('tr'); // <tr></tr>
