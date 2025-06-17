@@ -97,7 +97,36 @@
       </when>
     </choose>
   </select>
+  
+  <select id="selectUserByCount" resultType="map">
+    select writer as "writer"
+         , member_name as "memberName"
+         , count(1) as "cnt"
+		from tbl_board b
+		join tbl_member m
+		on b.writer = m.member_id
+		group by writer, member_name
+  </select>
+  
+  <select id="selectEvent">
+    select title as "title"
+          ,start_date as "start"
+          ,end_date as "end"
+    from tbl_events
+  </select>
 
+  <insert id="insertEvent" parameterType="map">
+    insert into tbl_events 
+    values (#{title}, #{start}, #{end})
+  </insert>
+  
+  <delete id="deleteEvent" parameterType="map">
+    delete from tbl_events
+    where title = #{title}
+    and   start_date = #{start}
+    and   end_date = #{end}
+  </delete>
+  
 </mapper>
 
 

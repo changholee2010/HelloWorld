@@ -25,6 +25,9 @@ function showReplyList() {
 		console.log(result);
 		let lastPage = Math.ceil(result.totalCnt / 5);
 		page = page > lastPage ? lastPage : page; // 현재마지막 페이지 계산하기.
+		if (!page) {
+			return;
+		}
 		// 바뀐페이지로 목록출력하기.
 		svc.replyList({ bno, page } //게시글번호
 			, result => {
