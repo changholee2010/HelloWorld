@@ -9,6 +9,7 @@
           ,member_name
           ,password
           ,responsibility
+          ,img
     from tbl_member
     where member_id = #{id}
     and   password = #{pw}
@@ -22,6 +23,23 @@
           ,responsibility
     from tbl_member
     order by ${order}
+  </select>
+  
+  <!-- 회원추가. -->
+  <insert id="insertMember" parameterType="Member">
+    insert into tbl_member (member_id, member_name, password, img)
+    values (#{memberId}, #{memberName}, #{password}, #{img} )
+  </insert>
+  
+  <!-- 회원조회. -->
+  <select id="selectMemberInfo" resultType="Member" parameterType="string">
+    select member_id
+          ,member_name
+          ,password
+          ,responsibility
+          ,img
+    from tbl_member
+    where member_id = #{id}    
   </select>
 
 </mapper>

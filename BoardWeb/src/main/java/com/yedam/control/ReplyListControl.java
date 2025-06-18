@@ -36,7 +36,6 @@ public class ReplyListControl implements Control {
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(map);
-		System.out.println(json);
 
 		PrintWriter out = resp.getWriter();
 		out.print(json);

@@ -14,12 +14,12 @@ public class AppTest {
 
 		SqlSession sqlSession = DataSource.getInstance().openSession();
 		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
-		
-		List<Map> list = mapper.selectUserByCount();
-		
+
+		List list = null;
+
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);
-		
+
 		System.out.println(json);
 
 	}

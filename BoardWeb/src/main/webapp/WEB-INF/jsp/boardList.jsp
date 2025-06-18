@@ -41,5 +41,7 @@
 </table>
 
 <script>
-let table = new DataTable('#example');
+let table = new DataTable('#example', {
+	order: [[0, 'desc']]
+});
 </script>

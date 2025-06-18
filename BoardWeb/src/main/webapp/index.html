@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>홈페이지에 잘왔습니다!!</title>
+  <meta charset="UTF-8">
+  <title>홈페이지에 잘왔습니다!!</title>
+  <link href="css/styles.css" rel="stylesheet" />
+  <script type="module" src="js/covid.js"></script>
 </head>
+
 <body>
   <h3>Welcome My Home!!</h3>
-  <h3>이창호입니다</h3>
-  <a href="html/sample.html">Sample 페이지로 이동.</a><br>
-  <a href="servlet/boardList.serv">게시판목록이동</a>
-  <script>
-  let str = '%25EC%2597%25B0%25EC%258A%25B5';
-  str = decodeURI(str);
-  console.log(decodeURI(str))
+  <h3>코로나19 센터정보</h3>
+
+  <!-- <input id="centerName" type="text"> -->
+  <select id="sido">
+    <option>선택하세요</option>
+  </select>
+  <button class="btn btn-primary">조회</button>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>센터ID</th><th>센터이름</th><th>전화</th>
+      </tr>
+    </thead>
+    <tbody id="centerList">
+      <!-- 목록출력. -->
+    </tbody>
+  </table>
   
-  </script>
+  <ul id="target"></ul>
+
 </body>
+
 </html>

@@ -29,6 +29,7 @@ public class LoginControl implements Control {
 			HttpSession session = req.getSession(); // cookie
 			session.setAttribute("logId", member.getMemberId());
 			session.setAttribute("auth", member.getResponsibility());
+			session.setAttribute("img", member.getImg());
 
 			// 권한에 따라 시작페이지지정.
 			if (member.getResponsibility().equals("User")) {
