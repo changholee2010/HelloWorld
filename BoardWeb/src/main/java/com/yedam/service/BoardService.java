@@ -22,4 +22,5 @@ public interface BoardService {
     public List<Map<String, String>> eventList();
     public boolean addEvent(Map<String, String> map);
     public boolean removeEvent(Map<String, String> map);
+    public boolean modifyEvent(Map<String, String> map);
 }

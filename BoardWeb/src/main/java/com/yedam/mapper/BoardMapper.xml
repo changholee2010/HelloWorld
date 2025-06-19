@@ -129,6 +129,15 @@
     and   end_date = #{end}
   </delete>
   
+  <update id="updateEvent" parameterType="map">
+    update tbl_events
+    set   start_date = #{newStart}
+         ,end_date = #{newEnd}
+    where title = #{title}
+    and start_date = #{start}
+    and end_date = #{end}
+  </update>
+  
 </mapper>
 
 

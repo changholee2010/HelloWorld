@@ -27,6 +27,7 @@ import com.yedam.control.LoginFormControl;
 import com.yedam.control.LogoutControl;
 import com.yedam.control.MemberListControl;
 import com.yedam.control.ModifyBoardControl;
+import com.yedam.control.ModifyEventControl;
 import com.yedam.control.RemoveBoardControl;
 import com.yedam.control.RemoveReplyControl;
 import com.yedam.control.ReplyCountControl;
@@ -61,6 +62,7 @@ public class FrontController extends HttpServlet {
 		map.put("/eventList.do", new EventListControl());
 		map.put("/addEvent.do", new AddEventControl());
 		map.put("/removeEvent.do", new RemoveEventControl());
+		map.put("/modifyEvent.do", new ModifyEventControl());
 		map.put("/centerList.do", new CenterControl());
 
 		// member관련.

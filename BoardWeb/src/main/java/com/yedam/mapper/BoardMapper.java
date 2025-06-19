@@ -24,4 +24,5 @@ public interface BoardMapper {
 	public List<Map<String, String>> selectEvent();
 	public int insertEvent(Map<String, String> map);
 	public int deleteEvent(Map<String, String> map);
+	public int updateEvent(Map<String, String> map);
 }

@@ -94,4 +94,14 @@ public class BoardServiceImpl implements BoardService {
 		}
 		return false;
 	}
+
+	@Override
+	public boolean modifyEvent(Map<String, String> map) {
+		int r = mapper.updateEvent(map);
+		if (r == 1) {
+			sqlSession.commit();
+			return true;
+		}
+		return false;
+	}
 }
