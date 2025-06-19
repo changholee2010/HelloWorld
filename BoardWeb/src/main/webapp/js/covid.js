@@ -22,7 +22,7 @@ fetch(url)
 				sidoAry.push(center.sido); // 추가.
 			}
 			if (idx < 10) {
-				//console.log(center);
+				console.log(center);
 				// tr생성하기.
 				let tr = makeRow(center);
 				document.querySelector('#centerList').appendChild(tr);

@@ -11,13 +11,13 @@
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="loginForm.do">로그인화면</a>
           </c:when>
           <c:otherwise>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logout.do">로그아웃(${logId })<img style="width:30px; border-radius=50%;" src="images/${img }"></a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logout.do">로그아웃(${logId })${not empty img ? '<img style="width:30px; border-radius=50%;" src="images/${img }">' : ''}</a>
           </c:otherwise>
         </c:choose>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="allProduct.do">자바스크립트</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="chartpage.do">chart</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="selectable.html">FullCalendar</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="signup.do">회원가입</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="centerList.do">센터정보</a>
     </div>
 </div>
-    

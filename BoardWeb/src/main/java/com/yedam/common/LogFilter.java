@@ -24,16 +24,15 @@ public class LogFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		System.out.println("서블릿 실행전.");
 
 		String host = req.getRemoteAddr();
 		String port = "" + req.getRemotePort();
 		// System.out.println("접속Host:" + host + "Port:" + port);
-
 		HttpServletRequest request = (HttpServletRequest) req;
 		String uri = request.getRequestURI();
 		String context = request.getContextPath();
 		String page = uri.substring(context.length());
+		System.out.println("요청페이지: " + page);
 
 		// localhost의 요청이 아니면 loginForm.do 페이지로 리다이렉션 하기.
 		if (!host.equals("0:0:0:0:0:0:0:1") && !page.equals("/loginForm.do")) {
@@ -51,7 +50,6 @@ public class LogFilter implements Filter {
 //		}
 		chain.doFilter(req, resp); // 서블릿 실행.
 
-		System.out.println("서블릿 실행후.");
 	}
 
 }

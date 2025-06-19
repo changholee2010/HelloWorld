@@ -6,7 +6,9 @@
 
   <!-- 조회(selectList) -->
   <select id="selectList" resultType="Board">
-    select * from tbl_board
+    select * from tbl_board b
+    ,tbl_member m
+    where b.writer = m.member_id
     order by board_no desc
   </select>
   
