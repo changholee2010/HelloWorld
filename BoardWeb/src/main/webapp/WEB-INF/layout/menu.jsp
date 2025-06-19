@@ -19,5 +19,6 @@
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="selectable.html">FullCalendar</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="signup.do">회원가입</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="centerList.do">센터정보</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="cart.jsp">장바구니예제</a>
     </div>
 </div>

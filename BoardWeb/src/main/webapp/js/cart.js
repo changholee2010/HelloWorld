@@ -49,7 +49,7 @@ cartItems.forEach(product => {
                 </div>
                 <div class="subdiv">
                     <div class="basketcmd">
-                        <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();">삭제</a>
+                        <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem(event);">삭제</a>
                     </div>
                 </div>
             </div>`;
@@ -69,7 +69,7 @@ const basket = {
 		if (elem.classList.contains('up') || e.key == 'ArrowUp') { //수량증가
 			currentQty++;
 		} else if (elem.classList.contains('down') || e.key == 'ArrowDown') { //수량감소
-			if (!currentQty) { // 수량이 0보다 작을수 없다.
+			if (!(currentQty - 1)) { // 최소수량은 1로 정하자.
 				return;
 			}
 			currentQty--;
@@ -80,16 +80,26 @@ const basket = {
 		this.allItem();
 	},
 	// 상품삭제.
-	delItem() {
-
+	delItem(e) {
+		e.target.closest('div.data').remove();
+		// 합계결과.
+		this.allItem();
 	},
 	// 선택상품삭제.
 	delCheckedItem() {
-
+		document.querySelectorAll('input[name="buy"]').forEach(item => {
+			if (item.checked) {
+				item.closest('div.data').remove();
+			}
+		});
+		// 합계결과.
+		this.allItem();
 	},
 	// 장바구니 비우기.
 	delAllItem() {
-
+		document.querySelectorAll('input[name="buy"]').forEach(item => item.closest('div.data').remove());
+		// 합계결과.
+		this.allItem();
 	},
 	// 전체수량과 금액을 계산해서 보여주기.
 	allItem() {
