@@ -27,7 +27,8 @@ public class LogFilter implements Filter {
 
 		String host = req.getRemoteAddr();
 		String port = "" + req.getRemotePort();
-		// System.out.println("접속Host:" + host + "Port:" + port);
+
+		System.out.println("접속Host:" + host + "Port:" + port);
 		HttpServletRequest request = (HttpServletRequest) req;
 		String uri = request.getRequestURI();
 		String context = request.getContextPath();
@@ -35,14 +36,15 @@ public class LogFilter implements Filter {
 		System.out.println("요청페이지: " + page);
 
 		// localhost의 요청이 아니면 loginForm.do 페이지로 리다이렉션 하기.
-		if (!host.equals("0:0:0:0:0:0:0:1") && !page.equals("/loginForm.do")) {
-			System.out.println("IP: " + host + ", Page: " + page);
-			HttpServletResponse response = (HttpServletResponse) resp;
-			response.sendRedirect("loginForm.do");
-			return;
-		}
-		HttpSession session = request.getSession();
-		String login = (String) session.getAttribute("logId");
+//		if (!host.equals("0:0:0:0:0:0:0:1") && !page.equals("/loginForm.do")) {
+//			System.out.println("IP: " + host + ", Page: " + page);
+//			HttpServletResponse response = (HttpServletResponse) resp;
+//			response.sendRedirect("loginForm.do");
+//			return;
+//		}
+
+//		HttpSession session = request.getSession();
+//		String login = (String) session.getAttribute("logId");
 //		if (!page.equals("loginForm.do") && (login == null || login.equals(""))) {
 //			HttpServletResponse response = (HttpServletResponse) resp;
 //			response.sendRedirect("loginForm.do");
