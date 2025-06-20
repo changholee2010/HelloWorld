@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.mapper.BoardMapper">
+
+  <!-- 조회(selectList) -->
+  <select id="selectList" resultType="Board">
+    select * from tbl_board b
+    ,tbl_member m
+    where b.writer = m.member_id
+    order by board_no desc
+  </select>
+  
+  <!-- 페이징 조회. -->
+  <select id="selectListWithPaging" parameterType="Search" resultType="Board">
+    select b.*
+    from  (select rownum rn, a.*
+           from  (select *
+                  from tbl_board
+                  <choose>
+                    <when test="searchCondition != null and searchCondition == 'T'.toString() ">
+                      where title like '%'||#{keyword}||'%'
+                    </when>
+                    <when test="searchCondition != null and searchCondition == 'W'.toString() ">
+                      where writer like '%'||#{keyword}||'%'
+                    </when>
+                    <when test="searchCondition != null and searchCondition == 'TW'.toString() ">
+                      where (title like '%'||#{keyword}||'%') or (writer like '%'||#{keyword}||'%')
+                    </when>
+                  </choose>
+                  order by board_no desc) a) b
+           where b.rn > (#{page} - 1) * 5
+    <![CDATA[
+    and   b.rn <= #{page} * 5
+    ]]>
+  </select>
+  
+  <!-- 상세조회(selectBoard) -->
+  <select id="selectBoard" parameterType="int" resultType="Board">
+    select board_no
+          ,title
+          ,content
+          ,writer
+          ,write_date
+          ,read_cnt
+    from tbl_board
+    where board_no = #{bno}
+  </select>
+  
+  <!-- 조회수증가. -->
+  <update id="updateReadCnt" parameterType="int">
+    update tbl_board
+    set    read_cnt = read_cnt + 1
+    where board_no = #{bno}
+  </update>
+  
+  <!-- 등록(insertBoard) -->
+  <insert id="insertBoard" parameterType="Board">
+    insert into tbl_board (board_no, title, content, writer)
+    values(board_seq.nextval, #{title}, #{content}, #{writer})
+  </insert>
+  
+  <!-- 수정(updateBoard) -->
+  <update id="updateBoard" parameterType="Board">
+    update tbl_board
+    <set>    
+    <if test="title != null">
+        title = #{title},
+    </if>
+    <if test="content != null">
+        content = #{content},
+    </if>
+    <if test="writer != null">
+        writer = #{writer}
+    </if>
+    </set>
+    where board_no = #{boardNo}
+  </update>
+  
+  <!-- 삭제(deleteBoard) parameterType="int" -->
+  <delete id="deleteBoard" parameterType="int">
+    delete from tbl_board
+    where board_no = #{bno}
+  </delete>
+  
+  <!-- 전체 건수. -->
+  <select id="selectCount" resultType="int" parameterType="Search">
+    select count(1) from tbl_board
+    <choose>
+      <when test="searchCondition != null and searchCondition == 'T'.toString() ">
+        where title like '%'||#{keyword}||'%'
+      </when>
+      <when test="searchCondition != null and searchCondition == 'W'.toString() ">
+        where writer like '%'||#{keyword}||'%'
+      </when>
+      <when test="searchCondition != null and searchCondition == 'TW'.toString() ">
+        where (title like '%'||#{keyword}||'%') or (writer like '%'||#{keyword}||'%')
+      </when>
+    </choose>
+  </select>
+  
+  <select id="selectUserByCount" resultType="map">
+    select writer as "writer"
+         , member_name as "memberName"
+         , count(1) as "cnt"
+		from tbl_board b
+		join tbl_member m
+		on b.writer = m.member_id
+		group by writer, member_name
+  </select>
+  
+  <select id="selectEvent">
+    select title as "title"
+          ,start_date as "start"
+          ,end_date as "end"
+    from tbl_events
+  </select>
+
+  <insert id="insertEvent" parameterType="map">
+    insert into tbl_events 
+    values (#{title}, #{start}, #{end})
+  </insert>
+  
+  <delete id="deleteEvent" parameterType="map">
+    delete from tbl_events
+    where title = #{title}
+    and   start_date = #{start}
+    and   end_date = #{end}
+  </delete>
+  
+  <update id="updateEvent" parameterType="map">
+    update tbl_events
+    set   start_date = #{newStart}
+         ,end_date = #{newEnd}
+    where title = #{title}
+    and start_date = #{start}
+    and end_date = #{end}
+  </update>
+  
+</mapper>
+
+
