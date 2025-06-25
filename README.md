@@ -1,13 +1,8 @@
 # 2025년 5강의장 자바수업 (2025/05/14 ~ 2025/05/27)
 ![main](https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/images/nice.jpeg)
 
-<<<<<<< HEAD
-## 1일차 😁
-1. 기초[바로가기](https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/condition/IfExe.java)
-=======
 ## **1일차** 😁
 1. 기초. [바로가기](https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/condition/IfExe.java)
->>>>>>> branch 'master' of https://github.com/changholee2010/HelloWorld.git
 2. 변수.
   - 기본타입
   - 정수, 실수, boolean
@@ -19,11 +14,7 @@
    - 깃 클론.
 
 
-<<<<<<< HEAD
-## 2일차 😁
-=======
 ## **2일차** 😁
->>>>>>> branch 'master' of https://github.com/changholee2010/HelloWorld.git
 1. 연산자.
 2. 조건, 반복문
 3. 실습.
@@ -31,17 +22,7 @@
 ### [숙제🛒]
 1. "혼자공부하는 자바" 3장 읽어보기.
 
-<<<<<<< HEAD
-## 3일차 😁
-=======
 ## **3일차** 😁
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/changholee2010/HelloWorld.git
-1. 배열
- *선언
- *최대, 합계, 평균 구하기.
- *정렬하기.
-=======
 1. [배열]
 2. [배열과 반복문]
 3. [최대, 최소, 평균] 구하기
@@ -49,7 +30,6 @@
 [배열]: https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/ref/NullExe.java
 [배열과 반복문]: https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/ref/ArrayExe.java
 [최대, 최소, 평균]: https://github.com/changholee2010/HelloWorld/blob/master/HelloWorld/src/com/yedam/ref/ArrayExe1.java
->>>>>>> branch 'master' of https://github.com/changholee2010/HelloWorld.git
 
 ### [숙제🛒]
 1. "혼자공부하는 자바" 페이지 223의 6번 문제를 읽어보고 코드를 완성하세요.
